@@ -259,8 +259,7 @@ namespace DCMRead.Views
                 bmp.Render(cnvImage);
 
                 var bitmap = new TransformedBitmap(bmp,
-                    new ScaleTransform(
-                   2, 2));
+                    new ScaleTransform(2, 2));
                 String fileName = fileModelList[currentIndex].name.Trim();
                 fileName = fileName.Substring(0, fileName.Length - 5) +".png";
                 string file = directoryPath+"\\"+ fileName; 
