@@ -1,0 +1,58 @@
+﻿<Page xmlns:hc="https://handyorg.github.io/handycontrol"  x:Class="DCMRead.Views.FileSeeView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DCMRead.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="940"
+      Title="FileSeeView">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="60"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="fileimage" Stretch="Uniform" VerticalAlignment="Center" HorizontalAlignment="Center"></Image>
+
+        <ListBox x:Name="listBox" Grid.Column="1"  Background="Black" MouseLeftButtonDown="itemClient">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="1" Rows="6"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+            <!--去除listbox的默认边距 -->
+            <ListBox.ItemContainerStyle>
+                <Style  TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                <ContentPresenter
+                                                  Content="{TemplateBinding Content}"
+                                                   ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                                   ContentTemplate="{TemplateBinding ContentTemplate}" 
+                                   />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                   
+                </Style>
+            </ListBox.ItemContainerStyle>
+               
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical" Margin="2,2" Background="Black">
+                        <Image Source="{Binding path}" Stretch="Fill" Width="30" Height="30" Margin="0,10,0,0"/>
+                        <TextBlock 
+                                Text="{Binding title}"  
+                                       Foreground="White"
+                                       Margin="0,5" FontSize="10" 
+                                       HorizontalAlignment="Center"
+                                TextTrimming="CharacterEllipsis" ></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+    </Grid>
+</Page>
