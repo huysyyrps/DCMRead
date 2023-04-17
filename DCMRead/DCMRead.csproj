@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
 	<UseWindowsForms>true</UseWindowsForms>
+	<ApplicationIcon>ic_logo.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,6 +25,10 @@
     <None Remove="Images\Image\ic_up.png" />
     <None Remove="Images\Image\nofile.png" />
     <None Remove="Images\Image\selectdcm.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ic_logo.ico" />
   </ItemGroup>
 
   <ItemGroup>
